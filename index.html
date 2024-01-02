@@ -3,10 +3,67 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
-    <title>Document</title>
+    <link rel="stylesheet" href="dist/css/index.css">
+    <title>The Auction House | Home</title>
 </head>
-<body>
-    
+<body class="bg-success">
+
+<nav class="navbar bg-primary navbar-dark py-3">
+    <div class="container">
+        <a href="/" class="navbar-brand"><img src="/images/logo.png"></a>
+        <div class="d-flex">
+        <div class="align-items-center bg-white rounded p-2 mx-3">
+            <span class="text-black">Currency temp</span>
+        </div>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navmenu">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+      </div>
+        <div class="collapse navbar-collapse" id="navmenu">
+            <ul class="navbar-nav ms-auto d-flex align-items-center justify-content-center">
+                <li class="nav-item">
+                    <a href="" class="nav-link text-white">Home</a>
+                </li>
+                <li class="nav-item mx-lg-5">
+                    <a href="../profile" class="nav-link text-white">Profile</a>
+                </li>
+                <li class="nav-item">
+                    <a href="../login" class="btn btn-light text-black px-3 py-1 mt-4 mt-lg-0">Log out</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+      <section class="p-5">
+        <div class="container">
+          <div class="row">
+            <div class="col-xl-5 col-lg-8 col-md-10 mx-auto">
+              <form class="form-inline my-2" id="search-form">
+                <div class="input-group mx-auto">
+                    <input class="form-control form-control-sm" type="search" id="search-input" placeholder="Search" aria-label="Search">
+                    <div class="input-group-append">
+                        <button class="btn btn-outline-primary" type="submit">Search</button>
+                        <a href="/post/create" class="btn btn-secondary text-white" type="button">New Listing</a>
+                    </div>  
+                </div>
+            </form>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="p-3">
+        <div class="container d-flex flex-column align-items-center">
+          <div class="row text-center">
+            <h1>Recent Listings</h1>
+          </div>
+          <div class="row mx-auto w-50" id="listings">
+            <!-- Import listing cards from api -->
+          </div>
+        </div>
+      </section>
+
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.3/js/bootstrap.min.js"></script>
 </body>
 </html>
