@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="dist/css/index.css">
+    <link rel="stylesheet" href="../../dist/css/index.css">
     <title>The Auction House | Home</title>
 </head>
-<body class="bg-success">
+<body class="bg-success vh-100 overflow-hidden">
 
 <nav class="navbar bg-primary navbar-dark py-3">
     <div class="container">
@@ -25,7 +25,7 @@
                     <a href="" class="nav-link text-white">Home</a>
                 </li>
                 <li class="nav-item mx-lg-5">
-                    <a href="../profile" class="nav-link text-white">Profile</a>
+                    <a href="../index.html" class="nav-link text-white">All listings</a>
                 </li>
                 <li class="nav-item mt-2">
                     <a href="/authentication/login/" class="btn btn-light text-black px-3 py-1 mt-4 mt-lg-0">Log out</a>
@@ -34,36 +34,25 @@
         </div>
     </div>
 </nav>
-<main>
-      <section class="p-5">
-        <div class="container">
-          <div class="row">
-            <div class="col-xl-5 col-lg-8 col-md-10 mx-auto">
-              <form class="form-inline my-2" id="search-form">
-                <div class="input-group mx-auto">
-                    <input class="form-control form-control-sm" type="search" id="search-input" placeholder="Search" aria-label="Search">
-                    <div class="input-group-append">
-                        <button class="btn btn-outline-primary" type="submit">Search</button>
-                        <a href="/listings/create" class="btn btn-secondary text-white" type="button">New Listing</a>
-                    </div>  
-                </div>
-            </form>
+<main class="pt-2">
+    <div class="container mt-5 px-5">
+        <div class="row pt-md-5">
+            <div>
+                <a href="../../index.html" class="text-black fs-4 fst-italic">< Back to all listings</a>
+            </div>       
+            <div class="col-md-7 col-lg-6">
+                <h1 class="display-1 fw-normal">My Profile</h1>
+                <h3 id="profile-name" class="mt-4">Name:</h3>
+                <h3 id="profile-email" class="my-4">Email:</h3>
             </div>
-          </div>
+            <div class="col-md-5 col-8 text-center">
+                <img id="profile-image" src="../images/bird-solo-blue.png" class="rounded-circle img-thumbnail">
+                <a href="" class="btn btn-lg btn-secondary text-white mt-4">Change Avatar</a>
+            </div>
         </div>
-      </section>
+    </div>
+</main>
 
-      <section class="p-3">
-        <div class="container d-flex flex-column align-items-center">
-          <div class="row text-center">
-            <h1>Recent Listings</h1>
-          </div>
-          <div class="row mx-auto w-50" id="listings">
-            <!-- Import listing cards from api -->
-          </div>
-        </div>
-      </section>
-    </main>
       <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.3/js/bootstrap.min.js"></script>
 </body>
 </html>
