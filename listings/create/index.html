@@ -8,32 +8,23 @@
 </head>
 <body class="bg-success vh-100 overflow-hidden">
 
-<nav class="navbar bg-primary navbar-dark py-3">
-    <div class="container">
-        <a href="/" class="navbar-brand"><img src="/images/logo.png" style="max-width: 80%;"></a>
-        <div class="d-flex">
-        <div class="align-items-center bg-white rounded p-2 mx-3">
-            <span class="text-black">Currency </span>
+    <nav class="navbar navbar-expand-md bg-primary navbar-dark py-3">
+        <div class="container">
+            <a href="/" class="navbar-brand"><img src="/images/logo.png" style="max-width: 80%;"></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navmenu">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+    
+            <div class="collapse navbar-collapse" id="navmenu">
+                <ul id="navigation-list" class="navbar-nav ms-auto d-flex align-items-center justify-content-center">
+                    <li class="nav-item">
+                        <a href="" class="nav-link text-white">All listings</a>
+                    </li>
+                </ul>
+            </div>
         </div>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navmenu">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-      </div>
-        <div class="collapse navbar-collapse" id="navmenu">
-            <ul class="navbar-nav ms-auto d-flex align-items-center justify-content-center">
-                <li class="nav-item">
-                    <a href="" class="nav-link text-white">Home</a>
-                </li>
-                <li class="nav-item mx-lg-5">
-                    <a href="../../profile" class="nav-link text-white">Profile</a>
-                </li>
-                <li class="nav-item">
-                    <a href="/authentication/login/" class="btn btn-light text-black px-3 py-1 mt-4 mt-lg-0">Log out</a>
-                </li>
-            </ul>
-        </div>
-    </div>
-</nav>
+    </nav>
+    
 <main>
     <div class="container mt-5">
         <div class="row d-flex justify-content-center pt-4">

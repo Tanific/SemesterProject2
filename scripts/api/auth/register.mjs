@@ -3,9 +3,9 @@ import { API_HOST_URL } from "../constants.mjs";
 const action ="/auth/register";
 const method ="post";
 
-export async function register(profile) {
+export async function register(user) {
     const registerURL = API_HOST_URL + action;
-    const body = JSON.stringify(profile);
+    const body = JSON.stringify(user);
 
     const response = await fetch(registerURL, {
         headers: {

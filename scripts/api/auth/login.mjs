@@ -4,9 +4,9 @@ import * as storage from "../../storage/index.mjs";
 const action = "/auth/login";
 const method = "post";
 
-export async function login(profile) {
+export async function login(user) {
     const loginURL = API_HOST_URL + action;
-    const body = JSON.stringify(profile);
+    const body = JSON.stringify(user);
   
     const response = await fetch(loginURL, {
       headers: {
@@ -19,7 +19,7 @@ export async function login(profile) {
     if (response.status === 200) {
       const { accessToken, ...user } = await response.json();
       storage.save("token", accessToken);
-      storage.save("profile", user);
+      storage.save("user", user);
       window.location.href = '/index.html';
     }
 }
