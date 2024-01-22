@@ -1,5 +1,6 @@
 import { createHtmlElement } from "../utils/createHtmlElement.mjs";
 import { getUser } from "../utils/getUser.mjs";
+import { logout } from "../utils/logout.mjs";
 
 let userLoggedIn = getUser();
 
@@ -19,6 +20,10 @@ export function renderNavigation() {
             href: "./authentication/login/"
         }, "Log Out");
 
+        logOutButton.addEventListener("click", () => {
+            logout();
+        });
+        
         logoutListItem.appendChild(logOutButton);
         mainNav.appendChild(logoutListItem);     
 

@@ -10,5 +10,8 @@ export default function router() {
         case "/authentication/register/":
             listeners.setRegisterFormListener()
             return;
+        case "/profile/":
+            listeners.setReadProfileListener()
+            return;
     }
 }
