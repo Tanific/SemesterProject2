@@ -1,5 +1,5 @@
-import { getUser } from "../utils/getUser.mjs";
-import { updateAvatar } from "../api/profile/updateProfile.mjs";
+import { getUser } from "../utils/index.mjs";
+import { updateAvatar } from "../api/profile/index.mjs";
 import { save } from "../storage/index.mjs";
 
 const user = getUser();

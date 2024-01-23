@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="dist/css/index.css">
-    <script src="/scripts/templates/renderMain.mjs" defer type="module"></script>
+    <script src="/scripts/index.mjs" defer type="module"></script>
     <title>The Auction House | Home</title>
 </head>
 <body class="bg-success">
@@ -25,7 +25,6 @@
         </div>
     </div>
 </nav>
-
 <main>
       <section class="p-5">
         <div class="container">
@@ -44,12 +43,12 @@
         </div>
       </section>
 
-      <section class="p-3">
+      <section>
         <div class="container d-flex flex-column align-items-center">
           <div class="row text-center">
             <h1>Recent Listings</h1>
           </div>
-          <div class="row mx-auto w-50" id="listings">
+          <div class="row d-flex flex-wrap justify-content-center" id="listingContainer">
             <!-- Import listing cards from api -->
           </div>
         </div>
