@@ -26,6 +26,10 @@ export default function router() {
             listeners.setReadListingsListener();
             templates.renderNavigation();
             return;
+        case "/listings/single/":
+            listeners.setReadListingListener();
+            templates.renderNavigation();
+            return;
 
     }
 }
