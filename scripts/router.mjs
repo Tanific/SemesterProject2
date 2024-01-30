@@ -30,6 +30,9 @@ export default function router() {
             listeners.setReadListingListener();
             templates.renderNavigation();
             return;
-
+        case "/listings/create/":
+            listeners.setCreateListingListener();
+            templates.renderNavigation();
+            return;
     }
 }

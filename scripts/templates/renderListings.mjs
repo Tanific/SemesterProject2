@@ -1,6 +1,6 @@
-import { createHtmlElement } from "../utils/createHtmlElement.mjs";
-import { getUser } from "../utils/getUser.mjs";
-import { formatTimeDifference } from "../utils/endsAt.mjs";
+import { createHtmlElement } from "../utils/index.mjs";
+import { formatTimeDifference } from "../utils/index.mjs";
+import { getUser } from "../utils/index.mjs";
 
 const userLoggedIn = getUser();
 
@@ -19,23 +19,21 @@ export function renderListingTemplate(listing) {
     const title = createHtmlElement("h2", ["d-block", "text-truncate"], {}, listing.title);
     const highestBid = listing.bids.length > 0 ? Math.max(...listing.bids.map(bid => bid.amount)) : 0;
     const bids = createHtmlElement("p", [], {}, `Current Bid: ${highestBid} kr`);      
-    const endsAt = createHtmlElement("p", ["fw-bold"], {}, formatTimeDifference(listing.endsAt));
+    const endsAt = createHtmlElement("p", ["fw-bold"], {}, `Ends in: ${formatTimeDifference(listing.endsAt)} hours`);
     const description = createHtmlElement("p", ["d-block", "text-truncate"], {}, listing.description);
+    const viewButton = createHtmlElement("a", ["btn", "btn-secondary", "mt-2"], {
+        href: `/listings/single/?id=${listing.id}`
+    }, "View Listing");
 
     listingBody.appendChild(title);
     listingBody.appendChild(description);
     listingBody.appendChild(bids);
-    listingBody.appendChild(endsAt);
-
-    if (userLoggedIn) {
-        const viewButton = createHtmlElement("a", ["btn", "btn-secondary", "mt-2"], {
-            href: `/listings/single/?id=${listing.id}`
-        }, "View Listing");
-        listingBody.appendChild(viewButton);
-      }
+    listingBody.appendChild(endsAt); 
+    listingBody.appendChild(viewButton);
     
-      listingContainer.appendChild(listingPicture);
-      listingContainer.appendChild(listingBody);
+    listingContainer.appendChild(listingPicture);
+    listingContainer.appendChild(listingBody);
       
-      return listingContainer;
+    return listingContainer;
 }
+

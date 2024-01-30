@@ -7,7 +7,7 @@
     <script src="/scripts/index.mjs" defer type="module"></script>
     <title>The Auction House | Profile</title>
 </head>
-<body class="bg-success vh-100 overflow-hidden">
+<body class="bg-success">
 
     <nav class="navbar navbar-expand-md bg-primary navbar-dark py-3">
         <div class="container">
@@ -26,7 +26,7 @@
         </div>
     </nav>
     
-<main class="pt-2">
+<main class="pt-2 mb-5">
     <div class="container mt-5 px-5">
         <div class="row pt-md-5">
             <div>
@@ -43,6 +43,11 @@
                 <a href="./edit/" class="btn btn-lg btn-secondary text-white mt-4">Edit Avatar</a>
             </div>
         </div>
+        <div class="row mt-5">
+            <h2 class="fw-bold">All listings</h2>
+            <div class="row" id="myListings"></div>
+        </div>
+    </div>
     </div>
 </main>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.3/js/bootstrap.min.js"></script>

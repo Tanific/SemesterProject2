@@ -14,9 +14,6 @@ export async function setReadListingListener() {
     
     try {
         const listing = await getListing(listingID);
-
-        singleListingContainer.innerHTML = '';
-
         const listingTemplate = renderSingleListingTemplate(listing);
             singleListingContainer.appendChild(listingTemplate);
 

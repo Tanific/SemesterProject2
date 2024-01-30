@@ -7,8 +7,6 @@ export async function setReadListingsListener() {
     try {
         const listings = await getListings();
 
-        listingsContainer.innerHTML = '';
-
         listings.forEach(listing => {
             const listingTemplate = renderListingTemplate(listing);
             listingsContainer.appendChild(listingTemplate);

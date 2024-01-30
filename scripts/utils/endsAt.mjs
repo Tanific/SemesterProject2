@@ -5,5 +5,5 @@ export function formatTimeDifference(endsAt) {
 
   const hoursDifference = Math.floor(timeDifference / (1000 * 60 * 60));
 
-  return `Ends in: ${hoursDifference} hours`;
+  return hoursDifference;
 }

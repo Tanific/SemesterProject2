@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../../dist/css/index.css">
+    <script src="/scripts/index.mjs" defer type="module"></script>
     <title>The Auction House | New Listing</title>
 </head>
 <body class="bg-success vh-100 overflow-hidden">
@@ -16,7 +17,7 @@
             </button>
     
             <div class="collapse navbar-collapse" id="navmenu">
-                <ul id="navigation-list" class="navbar-nav ms-auto d-flex align-items-center justify-content-center">
+                <ul id="main-nav" class="navbar-nav ms-auto d-flex align-items-center justify-content-center">
                     <li class="nav-item">
                         <a href="" class="nav-link text-white">All listings</a>
                     </li>
@@ -39,20 +40,20 @@
                             <label for="" class="form-label">Title*</label>
                             <input type="text" class="form-control" placeholder="Enter the title of the listing" name="title" required>
                           </div>
-          
-                          <div class="mb-3">
-                            <label for="image" class="form-label">Media</label>
-                            <input type="text" class="form-control" placeholder="Add the media URL" name="media">
-                          </div>
 
                           <div class="mb-3">
                             <label for="description" class="form-label">Description</label>
-                            <textarea class="form-control" placeholder="Give the listing a description" name="description" required></textarea>
+                            <textarea class="form-control" placeholder="Give the listing a description" name="description" ></textarea>
+                          </div>
+          
+                          <div class="mb-3">
+                            <label for="image" class="form-label">Media Gallery</label>
+                            <input type="text" class="form-control" placeholder="Separate with comma" name="media">
                           </div>
           
                           <div class="mb-3">
                             <label for="deadline" class="form-label">Deadline*</label>
-                            <input type="datetime-local" class="form-control" name="deadline">
+                            <input type="datetime-local" class="form-control" name="endsAt" required>
                         </div>
                         <div class="mt-4 mt-sm-4">
                             <button class="btn btn-secondary btn-lg text-light px-5">Publish listing</button>
