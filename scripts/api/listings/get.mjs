@@ -4,8 +4,7 @@ import { authFetch } from "../authFetch.mjs";
 const action = "/listings"
 
 export async function getListings() {
-    
-    const getListingsURL = `${API_HOST_URL}${action}?_active=true&_seller=true&_bids=true`
+    const getListingsURL = `${API_HOST_URL}${action}?_active=true&_seller=true&_bids=true&sort=created`
     const response = await authFetch(getListingsURL);
     return await response.json();
 }

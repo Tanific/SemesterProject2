@@ -1,10 +1,11 @@
 import { getListings } from "../api/listings/index.mjs"
 import { renderListingTemplate } from "../templates/renderListings.mjs";
 
-const listingsContainer = document.getElementById("listingContainer");
 
 export async function setReadListingsListener() {
     try {
+        const listingsContainer = document.getElementById("listingContainer");
+
         const listings = await getListings();
 
         listings.forEach(listing => {
