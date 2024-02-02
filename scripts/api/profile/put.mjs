@@ -16,6 +16,6 @@ export async function updateAvatar(name, newAvatarUrl) {
     body: JSON.stringify({ avatar: newAvatarUrl }),
   });
 
-  return await response.json();
+  return response;
 }
 

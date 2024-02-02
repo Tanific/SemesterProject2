@@ -16,7 +16,7 @@ export function renderListingTemplate(listing) {
 
     const listingBody = createHtmlElement("div", ["col-12", "p-3"]);
 
-    const title = createHtmlElement("h2", ["d-block", "text-truncate"], {}, listing.title);
+    const title = createHtmlElement("h2", ["d-block", "text-truncate", "pb-1"], {}, listing.title);
     const highestBid = listing.bids && listing.bids.length > 0 ? Math.max(...listing.bids.map(bid => bid.amount)) : 0;
     const bids = createHtmlElement("p", [], {}, `Current Bid: ${highestBid} kr`);
     const endsAt = createHtmlElement("p", ["fw-bold"], {}, `Ends in: ${formatTimeDifference(listing.endsAt)} hours`);

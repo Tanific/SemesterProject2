@@ -16,6 +16,13 @@ export function renderNavigation() {
         profileListItem.appendChild(profileButton)
         mainNav.appendChild(profileListItem);
 
+        const newListingItem = createHtmlElement("li", ["nav-item"]);
+        const newListingButton = createHtmlElement("a", ["btn", "border", "bg-secondary","text-white", "mx-3", "m-md-0", "m-3"], {
+            href: `${baseURL}listings/create/`
+        }, "New Listing");
+        newListingItem.appendChild(newListingButton);
+        mainNav.appendChild(newListingItem)
+
         const logoutListItem = createHtmlElement("li", ["nav-item"]);
         const logOutButton = createHtmlElement("a", ["btn", "btn-light", "px-3", "py-1", "mx-3"], {
             href: `${baseURL}authentication/login/`

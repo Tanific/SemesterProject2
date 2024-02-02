@@ -6,3 +6,4 @@ export * from "./logout.mjs";
 export * from "./reload.mjs";
 export * from "./endsAt.mjs";
 export * from "./getValueFromURLParameter.mjs";
+export * from "./showAlert.mjs"
