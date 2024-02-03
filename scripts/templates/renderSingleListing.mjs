@@ -16,6 +16,10 @@ export function renderSingleListingTemplate(listing) {
     const highestBid = sortedBids[0];
     const listingContainer = createHtmlElement("div", ["row", "mx-5", "justify-content-center"]);
 
+    const endsAtTimestamp = new Date(listing.endsAt).getTime();
+    const nowTimestamp = new Date().getTime();
+    const auctionIsOver = endsAtTimestamp < nowTimestamp;
+
     const listingMedia = createHtmlElement("div", ["col-sm-12", "col-lg-6"]);
     const listingDescription = createHtmlElement("div", ["col-12", "col-lg-6"]);
 
@@ -24,7 +28,7 @@ export function renderSingleListingTemplate(listing) {
     media.style.width = "100%";
     listingMedia.appendChild(media);
     
-    if (loggedIn && userLoggedIn.name !== listing.seller.name) {
+    if (!auctionIsOver && loggedIn && userLoggedIn.name !== listing.seller.name) {
         const submitBidContainer = createHtmlElement("div", ["row"]);
         listingMedia.appendChild(submitBidContainer);
         
@@ -68,7 +72,7 @@ export function renderSingleListingTemplate(listing) {
     const description = createHtmlElement("h5", ["mt-3", "display-6"], {}, listing.description);
     const highestBidContainer = createHtmlElement("div", ["mt-3"]);
     const highestBidTitle = createHtmlElement("h2", ["fw-bold"], {}, "Current bid:");
-    const endsAt = createHtmlElement("p", ["fw-bold"], {}, `${formatTimeDifference(listing.endsAt)}`);
+    const endsAt = createHtmlElement("p", ["fw-bold", "fs-3", "text-danger"], {}, `${formatTimeDifference(listing.endsAt)}`);
     const bidsHistory = createHtmlElement("h2", ["text-secondary", "fw-bold"], {}, "Bid History:");
 
     highestBidContainer.style.maxWidth= "400px";
