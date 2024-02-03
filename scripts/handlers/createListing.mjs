@@ -1,4 +1,7 @@
 import { createListing } from "../api/listings/index.mjs";
+import { reload } from "../utils/reload.mjs";
+import { getAccessToken } from "../utils/getAccessToken.mjs";
+import * as alert from "../utils/showAlert.mjs"
 
 export function setCreateListingListener() {
     const form = document.querySelector("#newListing");
@@ -11,7 +14,15 @@ export function setCreateListingListener() {
             const listing = Object.fromEntries(formData.entries());
 
             if (listing.endsAt) {
-                listing.endsAt = new Date(listing.endsAt).toISOString();
+                const enteredDeadline = new Date(listing.endsAt);
+                const currentDate = new Date();
+
+                if (enteredDeadline < currentDate) {
+                    alert.showAlertError("Please choose a future date and time for the deadline");
+                    return;
+                }
+
+                listing.endsAt = enteredDeadline.toISOString();
             }
 
             if (!listing.media) {
@@ -21,9 +32,21 @@ export function setCreateListingListener() {
             }
 
             try {
+                const accessToken = getAccessToken();
+                if (!accessToken) {
+                    alert.showAlertError("Unauthorized request");
+                    setTimeout(() => {
+                        window.location.href = '/authentication/login/';
+                    }, 2400);
+                    return;
+                }
                 await createListing(listing);
+                alert.showAlertSuccess("Successfully created listing");
+                setTimeout(() => {
+                    window.location.href = '/';
+                }, 2400);
             } catch (error) {
-                console.error("Error creating listing:", error);
+                alert.showAlertError(error);
             }
         });
     }

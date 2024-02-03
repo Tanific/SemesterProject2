@@ -1,7 +1,6 @@
 import { getListings } from "../api/listings/index.mjs"
 import { renderListingTemplate } from "../templates/renderListings.mjs";
 
-
 export async function setReadListingsListener() {
     try {
         const listingsContainer = document.getElementById("listingContainer");

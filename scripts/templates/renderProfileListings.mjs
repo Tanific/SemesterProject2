@@ -12,7 +12,7 @@ export function renderProfileListingTemplate(listing) {
     const listingBody = createHtmlElement("div", ["col-12", "p-3"]);
 
     const title = createHtmlElement("h2", [], {}, listing.title);
-    const endsAt = createHtmlElement("p", ["fw-bold"], {}, `Ends in: ${formatTimeDifference(listing.endsAt)} hours`);
+    const endsAt = createHtmlElement("p", ["fw-bold", "fs-5"], {}, `${formatTimeDifference(listing.endsAt)}`);
     const description = createHtmlElement("p", ["d-block", "text-truncate"], {}, listing.description);
     const viewButton = createHtmlElement("a", ["btn", "btn-secondary", "mt-2"], {
         href: `/listings/single/?id=${listing.id}`

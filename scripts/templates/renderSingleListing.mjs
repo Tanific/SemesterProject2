@@ -2,11 +2,18 @@ import { createHtmlElement } from "../utils/index.mjs";
 import { formatTimeDifference } from "../utils/index.mjs";
 import { submitBid } from "../api/listings/post.mjs";
 import { getUser } from "../utils/index.mjs";
+import { isLoggedIn } from "../utils/index.mjs";
+import { reload } from "../utils/index.mjs";
+import { getAccessToken } from "../utils/index.mjs";
 import * as alerts from "../utils/index.mjs"
 
 const userLoggedIn = getUser();
+const loggedIn = isLoggedIn();
 
 export function renderSingleListingTemplate(listing) {
+
+    const sortedBids = listing.bids.sort((a, b) => b.amount - a.amount);
+    const highestBid = sortedBids[0];
     const listingContainer = createHtmlElement("div", ["row", "mx-5", "justify-content-center"]);
 
     const listingMedia = createHtmlElement("div", ["col-sm-12", "col-lg-6"]);
@@ -17,45 +24,51 @@ export function renderSingleListingTemplate(listing) {
     media.style.width = "100%";
     listingMedia.appendChild(media);
     
-    if (userLoggedIn && userLoggedIn.name !== listing.seller.name) {
+    if (loggedIn && userLoggedIn.name !== listing.seller.name) {
         const submitBidContainer = createHtmlElement("div", ["row"]);
         listingMedia.appendChild(submitBidContainer);
         
         const biddingForm = createHtmlElement("form", ["mt-3", "row"]);
-        
         const bidInputContainer = createHtmlElement("div", ["col-6", "mb-2"]);
         const bidInput = createHtmlElement("input", ["form-control"], {
             type: "number",
-            placeholder: "1",
             name: "bid",
+            min: highestBid ? highestBid.amount + 1 : 1,
+            max: userLoggedIn.credits,
+            value: highestBid ? highestBid.amount + 1 : 1,
         });
         
         const bidSubmitButtonContainer = createHtmlElement("div", ["col-6"]); 
-        const bidSubmitButton = createHtmlElement("button", ["btn", "btn-primary"], { type: "submit" }, "Place Bid");
-        
+        const bidSubmitButton = createHtmlElement("button", ["btn", "btn-primary"], { type: "submit" }, "Place Bid");    
         submitBidContainer.appendChild(biddingForm);
         biddingForm.appendChild(bidInputContainer);
         bidInputContainer.appendChild(bidInput);
         biddingForm.appendChild(bidSubmitButtonContainer);
         bidSubmitButtonContainer.appendChild(bidSubmitButton);
-    
+         
         biddingForm.addEventListener("submit", async (event) => {
             event.preventDefault();
             try {
-                submitBid(listing.id, bidInput.value);
+                const accessToken = getAccessToken();
+                if (!accessToken) {
+                    alerts.showAlertError("Unauthorized request");
+                    reload(2400);
+                    return;
+                }
+                await submitBid(listing.id, bidInput.value);
+                alerts.showAlertSuccess("Bid successful");
+                reload(2400);
             } catch (error) {
-                alerts.showAlertError("Failed to place bid")
+                alerts.showAlertError(error);
             }
         });
     }
-   
-
     // description content
     const title = createHtmlElement("h1", ["display-4"], {}, `"${listing.title}" by: ${listing.seller.name}`);
     const description = createHtmlElement("h5", ["mt-3", "display-6"], {}, listing.description);
     const highestBidContainer = createHtmlElement("div", ["mt-3"]);
     const highestBidTitle = createHtmlElement("h2", ["fw-bold"], {}, "Current bid:");
-    const endsAt = createHtmlElement("p", ["fw-bold"], {}, `Ends in: ${formatTimeDifference(listing.endsAt)} hours`);
+    const endsAt = createHtmlElement("p", ["fw-bold"], {}, `${formatTimeDifference(listing.endsAt)}`);
     const bidsHistory = createHtmlElement("h2", ["text-secondary", "fw-bold"], {}, "Bid History:");
 
     highestBidContainer.style.maxWidth= "400px";

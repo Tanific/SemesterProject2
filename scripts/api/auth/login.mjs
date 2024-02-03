@@ -1,5 +1,6 @@
 import { API_HOST_URL } from "../constants.mjs";
 import * as storage from "../../storage/index.mjs";
+import * as alert from "../../utils/index.mjs"
 
 const action = "/auth/login";
 const method = "post";
@@ -20,6 +21,10 @@ export async function login(user) {
       const { accessToken, ...user } = await response.json();
       storage.save("token", accessToken);
       storage.save("user", user);
-      window.location.href = '/index.html';
+      window.location.href = '/';
+    } else {
+      const errorData = await response.json();
+      const errorMessage = errorData.errors[0].message;      
+      alert.showAlertError(errorMessage);
     }
 }
