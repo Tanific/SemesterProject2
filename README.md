@@ -15,6 +15,9 @@ This project is built with Bootstrap, SCSS and Javascript.
 3. Run `npm run build` to build the project with sass
 4. Open with live server
 
+## Deployment
+Site is hosted on [Netlify](https://netlify.com/). Manual deploys. The site can be found at https://sp2tonjestensen.netlify.app/.
+
 ## Functionality
 #### Register
 Register requires a username, a noroff email and a password of 8 characters or more.
@@ -28,7 +31,7 @@ Successful request redirect to home page and saves token and user info in local 
 
 #### Listings
 Unregistered and registered users may search through listings, see the deadline and previous bids. 
-Registered users may create a new listing. The form requirements are Title and Deadline. It is possible to add media gallery and descriptions.
+Registered users may create a new listing. The form requirements are Title and Deadline. It is possible to add media gallery(separate with comma) and descriptions.
 
 #### Bids
 Registered users can place bids. Successfully placing a bid will reload the page.
