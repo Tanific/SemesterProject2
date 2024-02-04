@@ -1,8 +1,8 @@
 import { createListing } from "../api/listings/index.mjs";
-import { reload } from "../utils/reload.mjs";
 import { getAccessToken } from "../utils/getAccessToken.mjs";
 import * as alert from "../utils/showAlert.mjs"
 
+//handler to create listings with title, description, deadline, media gallery (separate with comma)
 export function setCreateListingListener() {
     const form = document.querySelector("#newListing");
 
@@ -30,7 +30,7 @@ export function setCreateListingListener() {
             } else {
                 listing.media = listing.media.split(",").map(media => media.trim());
             }
-
+        //check for accesstoken. redirect to login page if unauthorized
             try {
                 const accessToken = getAccessToken();
                 if (!accessToken) {

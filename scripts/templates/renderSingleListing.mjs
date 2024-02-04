@@ -9,7 +9,7 @@ import * as alerts from "../utils/index.mjs"
 
 const userLoggedIn = getUser();
 const loggedIn = isLoggedIn();
-
+//render single listings based on id and login status
 export function renderSingleListingTemplate(listing) {
 
     const sortedBids = listing.bids.sort((a, b) => b.amount - a.amount);

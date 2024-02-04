@@ -1,7 +1,7 @@
 import { createHtmlElement } from "../utils/index.mjs";
 import { formatTimeDifference } from "../utils/index.mjs";
-import { getUser } from "../utils/index.mjs";
 
+//layout of listings on home page
 export function renderListingTemplate(listing) {
     const listingContainer = createHtmlElement("div", ["col-4", "m-3", "bg-white", "rounded-2", "shadow", "p-0"]);
     listingContainer.style.width = "350px";

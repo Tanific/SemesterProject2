@@ -4,7 +4,7 @@ import { save } from "../storage/index.mjs";
 import * as alerts from "../utils/index.mjs"
 
 const user = getUser();
-
+// handler for put request to update avatar url
 const confirmChangesBtn = document.getElementById("confirmChangesBtn");
 const avatarInput = document.getElementById("avatarInput");
 

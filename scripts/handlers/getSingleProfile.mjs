@@ -2,6 +2,7 @@ import { getProfile } from "../api/profile/index.mjs";
 import { load } from "../storage/index.mjs";
 import { renderProfileListingTemplate } from "../templates/renderProfileListings.mjs"; 
 
+//retrieve profile info and display them on profile page
 export async function setReadProfileListener() {
     try {
         const { name, email, credits } = load("user");

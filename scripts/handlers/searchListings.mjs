@@ -2,7 +2,7 @@ import { getListings } from "../api/listings/get.mjs";
 import { renderListingTemplate } from "../templates/renderListings.mjs";
 
 const searchForm = document.getElementById("search-form");
-
+//search bar that filters title content and description content
 if (searchForm) {
     searchForm.addEventListener("submit", async function (event) {
         event.preventDefault();

@@ -3,7 +3,7 @@ import { getValueFromURLParameter } from "../utils/getValueFromURLParameter.mjs"
 import { renderSingleListingTemplate } from "../templates/renderSingleListing.mjs";
 
 const singleListingContainer = document.getElementById("singleListing");
-
+//fetches single listings based on id, retrieved from url param
 export async function setReadListingListener() {
     const listingID = getValueFromURLParameter("id");
 

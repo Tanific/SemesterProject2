@@ -1,6 +1,7 @@
 import { getListings } from "../api/listings/index.mjs";
 import { renderListingTemplate } from "../templates/renderListings.mjs";
 
+//fetches and renders listings, 6 at a time, load more button to display 6 more
 let visibleListings = 6;
 let step = 6;
 export async function setReadListingsListener() {

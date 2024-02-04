@@ -1,3 +1,5 @@
+//format time difference using the endsAt endpoint from api
+
 export function formatTimeDifference(endsAt) {
   const currentTime = new Date();
   const endTime = new Date(endsAt);

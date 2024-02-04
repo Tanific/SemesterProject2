@@ -4,7 +4,7 @@ import { logout } from "../utils/index.mjs";
 
 const userLoggedIn = getUser();
 const baseURL = "/";
-
+//nav layout based on login status
 export function renderNavigation() {
     const mainNav = document.getElementById("main-nav");
 

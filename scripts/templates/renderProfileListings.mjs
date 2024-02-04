@@ -1,6 +1,7 @@
 import { createHtmlElement } from "../utils/index.mjs";
 import { formatTimeDifference } from "../utils/endsAt.mjs";
 
+//render owned listings in profile
 export function renderProfileListingTemplate(listing) {
     
     const profileListings = createHtmlElement("div", ["col-4", "my-3", "me-3", "bg-white", "rounded-2", "shadow", "p-0"]);

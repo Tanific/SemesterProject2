@@ -1,5 +1,5 @@
 import { createHtmlElement } from "./createHtmlElement.mjs";
-
+//success alert info
 export function showAlertSuccess(message, type = "info", duration = 5000, ariaLive = "polite") {
     const alertContainer = document.getElementById("alert");
 
@@ -15,7 +15,7 @@ export function showAlertSuccess(message, type = "info", duration = 5000, ariaLi
         alertContainer.removeChild(successAlert);
     }, duration);
 }
-
+//error alert danger
 export function showAlertError(message, type = "danger", duration = 5000, ariaLive = "polite") {
     const alertContainer = document.getElementById("alert");
 
