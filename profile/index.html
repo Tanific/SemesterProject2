@@ -7,7 +7,7 @@
     <script src="/scripts/index.mjs" defer type="module"></script>
     <title>The Auction House | Profile</title>
 </head>
-<body class="bg-success">
+<body class="bg-success d-flex flex-column min-vh-100">
 
     <nav class="navbar navbar-expand-md bg-primary navbar-dark py-3">
         <div class="container">
@@ -26,8 +26,8 @@
         </div>
     </nav>
     
-<main class="pt-2 mb-5">
-    <div class="container mt-5 px-5">
+    <main class="pt-2 mb-5 flex-grow-1">
+        <div class="container mt-5 px-5">
         <div class="row pt-md-5">
             <div>
                 <a href="../../" class="text-black fs-4 fst-italic">< Back to all listings</a>
@@ -39,7 +39,10 @@
                 <h3 id="profile-wins" class="my-4"></h3>
             </div>
             <div class="col-md-5 col-8 text-center">
-                <img id="profile-image" src="" class="rounded-circle img-thumbnail">
+                <div class="position-relative" style="width: 250px; height: 250px; margin: 0 auto;">
+                    <img id="profile-image" src="" class="rounded-circle position-absolute w-100 h-100" 
+                         style="object-fit: cover; top: 0; left: 0;">
+                </div>
                 <a href="./edit/" class="btn btn-lg btn-secondary text-white mt-4">Edit Avatar</a>
             </div>
         </div>
@@ -52,7 +55,7 @@
 </main>
 <div id="alert"></div>
 
-<footer class="bg-secondary text-white text-center footer">
+<footer class="bg-secondary text-white text-center mt-auto">
     <div class="container">
       <div class="row">
         <div class="col">
